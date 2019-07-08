@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Locadora.Models.Catalogo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Bem vindo ao nosso catalogo de Filmes!</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="@item.Imagem" alt="@item.Titulo" />
+            <div class="caption">
+                <h3>@Html.DisplayFor(modelItem => item.Titulo)</h3>
+                <p> @Html.DisplayFor(modelItem => item.Sinopse)</p>
+                <p>Diretor: @Html.DisplayFor(modelItem => item.Diretor)</p>
+
+                <p>Lançamento: @Html.DisplayFor(modelItem => item.AnoLancamento)</p>
+                <p>Duração: @Html.DisplayFor(modelItem => item.Duracao)</p>
+                <p><a href="/Filme/exibir/@item.Titulo" class="btn btn-primary" role="button">Assistir</a>
+                   <a href="#" class="btn btn-default" role="button">Detalhes</a></p>
+            </div>
+        </div>
+    </div>
+
+
+    }
+
+</div>
