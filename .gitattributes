@@ -2,6 +2,6 @@
 * text=auto
 
 
-*.js linguist-language=C#
-*.css linguist-language=Python
-*.*html* linguist-language=ASP
+*.js linguist-language=ASP
+*.css linguist-language=JavaScript
+*.*html* linguist-language=C#
