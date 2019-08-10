@@ -17,15 +17,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Locadora feita em ASP.NET", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Locadora feita em ASP.NET", "Index", "Catalogo", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Início", "Index", "Home")</li>
-                    
+                    <li>@Html.ActionLink("Início", "Index", "Catalogo")</li>
+
                     <li><a id="login" href="javascript:void;">Entrar</a></li>
 
-                    <li>@Html.ActionLink("Cadastrar", "Cadastrar", "Usuario")</li>
+                    <li>@Html.ActionLink("Sair", "Login", "Usuario")</li>
+
+                    @*<li>@Html.ActionLink("CadastrarFUDEU", "Cadastrar", "Usuario")</li>*@
                 </ul>
             </div>
         </div>

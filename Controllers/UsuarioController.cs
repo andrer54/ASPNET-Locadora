@@ -1,8 +1,4 @@
 ﻿using Locadora.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -10,11 +6,6 @@ namespace Locadora.Controllers
 {
     public class UsuarioController : Controller
     {
-        // GET: Usuario
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         public ActionResult Cadastrar()
         {
@@ -36,27 +27,36 @@ namespace Locadora.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
+            if (HttpContext.Request.IsAuthenticated)
+            {
+                FormsAuthentication.SignOut();
+                FormsAuthentication.RedirectToLoginPage();
+                HttpContext.Response.End();
+            }
+
             if (Request.IsAjaxRequest())
                 return PartialView();
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(Login model, string url)
+        public ActionResult Login(Login model)
         {
-            var usuario = Session[$"user.{ model.Email}"] as Usuario;
+            //var usuario = Session[$"user.{ model.Email}"] as Usuario;
 
-            if (usuario == null && usuario.Senha != model.Senha)
+
+
+
+            if (model.Email == "usuario@usuario.com" && model.Senha == "12345")
             {
-                return PartialView();
+                FormsAuthentication.SetAuthCookie(model.Email, true);
+
+
+                return RedirectToAction("Index", "Catalogo");
             }
 
-            FormsAuthentication.SetAuthCookie(model.Email, true);
 
-            if (!string.IsNullOrEmpty(url))
-                return RedirectToAction(url);
-            return RedirectToAction("Index", "Catalogo");
-
+            return PartialView();
         }
 
 
