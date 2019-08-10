@@ -1,6 +1,6 @@
 ﻿@model Locadora.Models.Login
 
-<form action="/" method="post" id="formLogin">
+@*<form action="/" method="post" id="formLogin">*@
     @using (Html.BeginForm()) 
     {
         @Html.AntiForgeryToken()
@@ -33,7 +33,12 @@
         </div>
     }
     
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-</form>
+        <div>
+            @Html.ActionLink("Voltar para lista de Filmes", "Index", "Catalogo")
+        
+        </div>
+        <div>
+            Utilize o loguin: usuario@usuario.com
+            senha: 12345
+        </div>
+@*</form>*@

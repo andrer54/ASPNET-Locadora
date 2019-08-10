@@ -6,9 +6,7 @@
 
 <h2>Bem vindo ao nosso catalogo de Filmes!</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 
 <div class="row">
     @foreach (var item in Model)
@@ -25,7 +23,7 @@
                 <p>Lançamento: @Html.DisplayFor(modelItem => item.AnoLancamento)</p>
                 <p>Duração: @Html.DisplayFor(modelItem => item.Duracao)</p>
                 <p><a href="/Filme/exibir/@item.Titulo" class="btn btn-primary" role="button">Assistir</a>
-                   <a href="#" class="btn btn-default" role="button">Detalhes</a></p>
+                   @*<a href="/Filme/exibir/@item.Titulo" class="btn btn-default" role="button">Detalhes</a>*@</p>
             </div>
         </div>
     </div>
