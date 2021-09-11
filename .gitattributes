@@ -4,4 +4,4 @@
 
 *.js linguist-language=C#
 *.css linguist-language=JavaScript
-*.*html* linguist-language=C#+Razor
+*.*html* linguist-language=C#
